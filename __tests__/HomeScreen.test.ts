@@ -3,13 +3,11 @@ Feature('HomeScreen');
 Scenario(
   'Verify "Get Started" button navigates to Home screen',
   async ({I}) => {
-    // Navigate to the home screen
-    await I.amOnPage('Home');
-
-    // Tap the "Get Started" button
-    await I.tap({testID: 'button-getStarted'});
-
-    // Verify that we're on the login screen
-    await I.seeElement({title: 'Login'});
+    await I.seeAppIsInstalled('com.deviceinfo');
+    await I.seeElement({id: 'button-getStarted'});
+    await I.tap({id: 'button-getStarted'});
+    await I.waitForElement({id: 'input-text'});
+    await I.seeElement({id: 'input-text'});
+    await I.waitForElement({id: 'button-submit'});
   },
 );

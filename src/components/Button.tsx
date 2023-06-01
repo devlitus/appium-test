@@ -13,6 +13,7 @@ export const Button: FC<ButtonProps> = ({onPress, title, isActive, testID}) => {
   console.log('Button', isActive);
   return (
     <TouchableOpacity
+      accessibilityLabel="button-getStarted"
       style={styles.button}
       onPress={onPress}
       testID={testID}
